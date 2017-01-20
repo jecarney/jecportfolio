@@ -1,0 +1,231 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins');
+@import url('https://fonts.googleapis.com/css?family=Lato');
+
+/*GLOBAL*/
+.App {
+  position:relative;
+  height:100vh;
+  overflow: hidden;
+}
+
+.wrapper{
+    position: relative;
+    margin: 0 auto;
+    width:700px;
+    height:100%;
+    overflow: hidden;
+}
+
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+a{
+  color: inherit;
+}
+
+/*HEADER*/
+header{
+  font-family: 'Lato', sans-serif;
+  letter-spacing: 3px;
+  margin-top: 10px;
+  font-size: 2em;
+  color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+}
+
+/*PANELS*/
+
+.panel{
+  font-family: 'Poppins', sans-serif;
+  color: rgba(255, 255, 255, 1);
+  text-align: left;
+  position:absolute;
+  bottom: 0;
+  right: 0;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s;
+}
+
+/*CONTENT*/
+
+.panelContent .contentText{
+    color: rgba(255, 255, 255, 0.2);
+}
+
+.panelContent img{
+    opacity: 0.2;
+}
+
+.hideContent div{
+  opacity: 0;
+  background-color: none;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.titleText{
+  font-family: 'Lato', sans-serif;
+  letter-spacing: 3px;
+  margin-top: 10px;
+  font-size: 2em;
+  color: rgba(255, 255, 255, 0.8);
+  display: block;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.brightPanel h3, .brightPanel .contentText, .brightPanel img{
+  color: rgba(255, 255, 255, 1);
+  opacity: 1;
+}
+
+/*.brightPanel .contentText{
+  color: rgba(255, 255, 255, 1);
+}*/
+
+.hideContent h3{
+  font-size: 1em;
+  margin: 5px 0 150px 5px;
+  color: rgba(255, 255, 255, 1);
+  background-color: none;
+}
+
+.contentText{
+  margin: 20px;
+  /*opacity: 0.7;*/
+}
+
+/* panel a */
+
+.a{
+  width: 200px;
+  height: 200px;
+  z-index: 4;
+  background-color: rgba(65, 23, 134, 0.6);
+  padding: 15px;
+}
+
+.titleTexta{
+  margin-top:25px;
+}
+
+.contactText {
+  font-size: 0.8em;
+}
+
+.hidepanela{
+  position: absolute;
+  bottom: -160px;
+  right: -100px;
+  padding: 5px;
+}
+
+.a .panelContent{
+  background-color: rgb(58,64,160);
+  box-shadow: 0 0 10px 1px rgb(58,64,160);
+}
+
+/* panel b */
+
+.b{
+  width: 300px;
+  height: 540px;
+  z-index: 3;
+  background-color: rgba(37, 145, 255, 0.6);
+}
+
+.b img {
+  margin-top: 20px;
+}
+
+.titleTextb{
+  margin-left: 70px;
+  padding: 5px;
+  /*background-color: rgb(73,163,241);
+  box-shadow: 0 0 10px 5px rgb(73,163,241);*/
+}
+
+.b .contentText {
+  background-color: rgb(47,126,199);
+  box-shadow: 0 0 10px 5px rgb(47,126,199);
+}
+
+.hidepanelb{
+  position: absolute;
+  bottom: -443px;
+  right: -190px;
+}
+
+/* panel c */
+
+.c{
+  width: 600px;
+  height: 400px;
+  z-index: 2;
+  background-color: rgba(18, 35, 47, 0.6);
+  padding: 15px;
+}
+
+.titleTextc{
+  margin-left: 90px;
+  /*background-color: rgb(62,97,116);
+  box-shadow: 0 0 10px 5px rgb(62,97,116);*/
+}
+
+.c .contentText {
+  /*background-color: rgb(62,97,116);
+  box-shadow: 0 0 10px 5px rgb(62,97,116);*/
+}
+
+.hidepanelc{
+  position: absolute;
+  bottom: -277px;
+  right: -510px;
+  padding: 10px;
+}
+
+.c .panelContent {
+  background-color: rgb(62,97,116);
+  box-shadow: 10px 5px rgb(62,97,116);
+}
+
+.iconGallery{
+  padding: 40px 0 0 0;
+}
+
+.iconGallery img{
+  padding: 10px;
+}
+
+/* panel d */
+
+.d{
+  height:100%;
+  z-index: 1;
+  background-color:rgba(44, 148, 198, 0.6);
+  padding: 20px;
+}
+
+.titleTextd{
+  text-align: center;
+  margin: 100px 0 0 0;
+}
+
+.d img {
+  padding: 10px;
+  display: inline-block;
+}
+
+.imageWrap{
+  position: relative;
+  text-align: center;
+}
