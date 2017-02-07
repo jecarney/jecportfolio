@@ -2,13 +2,15 @@ import React, { Component } from 'react';
 import './App.css';
 
 import Panel from './Panel'
+import Samples from './Samples'
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
       visiblePanels: ["d"],
-      selectedPanel: "d"
+      selectedPanel: "d",
+      selectedImg: 0
     };
   };
   render() {
@@ -18,22 +20,22 @@ class App extends Component {
           <header> Jules Carney </header>
           <Panel label="a" titleText="Contact" reveal={this.reveal} reset={this.reset} hidePanel={this.hidePanel} hideContent={this.hideContent} brightPanel={this.brightPanel}>
             <div className="contactText"><a href="https://ca.linkedin.com/in/jecarney"><img src="in.png" alt="Linkedin Icon" width="20px" height="20px"/>
-            Jules Carney</a></div>
-            <div className="contactText"><img src="mail.png" alt="Profile" width="20px" height="15px"/>
-            julia.e.carney<span>@</span>gmail.com
+            <p>jecarney</p></a></div>
+            <div className="contactText"><img src="mail.png" alt="Profile" width="20px" height="15px"/><p id="contactTextFix">
+            julia.e.carney<span>@</span>gmail.com</p>
             </div>
           </Panel>
           <Panel label="b" titleText="About Me" reveal={this.reveal} reset={this.reset} hidePanel={this.hidePanel} hideContent={this.hideContent} brightPanel={this.brightPanel}>
-            <img src="profile.jpg" alt="Profile" width="300px" height="200px"/>
-            <div className="contentText">Hello! I'm Jules, a full-stack developer based out of Toronto. I have four years of JavaScript and web mapping experience, and many back-end skills. I'd love to work with you!</div>
+            <img src="profile.png" alt="Profile"/>
+            <div className="contentText">Hello! I'm Jules, a full-stack developer based in Toronto. I have years of JavaScript and web mapping experience, and many back-end skills. I'd love to work with you!</div>
           </Panel>
-          <Panel label="c" titleText="Skills" reveal={this.reveal} reset={this.reset} hidePanel={this.hidePanel} hideContent={this.hideContent} brightPanel={this.brightPanel}>
+          <Panel label="c" titleText="Highlights" reveal={this.reveal} reset={this.reset} hidePanel={this.hidePanel} hideContent={this.hideContent} brightPanel={this.brightPanel}>
             <div className="contentText">
-              Major strengths include:
               <ul>
-                <li>Javascript and libraries</li>
-                <li>web mapping using Google Maps and ArcGIS Online</li>
-                <li>back-end and database using SQL, .NET, Node.js, NoSQL databases</li>
+                <li>Several years of professional experience with client-side scripting using JavaScript and libraries</li>
+                <li>Back-end and database using SQL, .NET</li>
+                <li>Familiar with React, Node.js, Express, Mongoose and MongoDB</li>
+                <li>Web mapping using Google Maps and ArcGIS Online</li>
               </ul>
               <div className="iconGallery">
                 <img src="JS.png" alt="JS icon" width="40px" height="40px"/>
@@ -45,14 +47,9 @@ class App extends Component {
               </div>
             </div>
           </Panel>
-          <Panel label="d" titleText="Portfolio" reveal={this.reveal} reset={this.reset} hidePanel={this.hidePanel} hideContent={this.hideContent} brightPanel={this.brightPanel}>
+          <Panel label="d" titleText="Sample Work" reveal={this.reveal} reset={this.reset} hidePanel={this.hidePanel} hideContent={this.hideContent} brightPanel={this.brightPanel}>
             <div className="contentText">
-              <div className="imageWrap">
-                <img src="ecospark.png" alt="EcoSpark Map" width="200px" height="200px"/>
-                <img src="poptask.png" alt="Pop-Task App" width="200px" height="200px"/>
-                <img src="lcbo_api.png" alt="LCBO API app" width="200px" height="200px"/>
-                <img src="mgoldman.png" alt="Marlene Goldman site" width="200px" height="200px"/>
-              </div>
+              <Samples selectedImg={this.state.selectedImg} imgClick={this.imgClick} close={this.close} imgClass={this.imgClass} closeClass={this.closeClass}/>
             </div>
           </Panel>
         </div>
@@ -86,6 +83,37 @@ class App extends Component {
 
   brightPanel = (label) => {
     return (this.state.selectedPanel===label ? ' brightPanel':'');
+  }
+
+  /* Sample Gallery*/
+
+  imgClass = (num) => {
+    var imgClass = "";
+    if(this.state.selectedImg===num){
+      imgClass += " selectedSample";
+    }
+    if(this.state.selectedImg!==0){
+      imgClass += " upperLeft";
+    }else{
+      imgClass = "img-"+num;
+    }
+    return imgClass;
+  }
+
+  imgClick = (num) => {
+    this.setState({selectedImg: num});
+  }
+
+  close = () => {
+    this.setState({selectedImg: 0});
+  }
+
+  closeClass = () => {
+    if(this.state.selectedImg===0||this.state.selectedPanel!=="d"){
+      return " hidden";
+    }else{
+      return "";
+    }
   }
 }
 
