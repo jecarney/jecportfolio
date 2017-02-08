@@ -6,8 +6,8 @@
 /**{outline: dotted yellow;}*/
 
 body{
-  background-image: radial-gradient(circle at top right, rgba(44, 148, 198, 0.4), rgba(44, 148, 198, 1));
   margin: 0;
+  background-image: radial-gradient(circle at top right, rgba(44, 148, 198, 0.4), rgba(44, 148, 198, 1));
 }
 
 .App {
@@ -40,6 +40,18 @@ ul {
 li{
   list-style-type: none;
   padding-bottom: 10px;
+}
+
+/*BACKGROUND MAP*/
+
+.mapDiv {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0.2;
+  width: 100%;
+  height: 100%;
+  /*overflow: hidden;*/
 }
 
 /*HEADER*/
@@ -232,6 +244,7 @@ h3 {
 
 .titleTextd{
   padding-top: 50px;
+  text-align: center;
 }
 
 /* SAMPLES */
@@ -240,6 +253,7 @@ h3 {
   position: relative;
   height: 100%;
   z-index: 1;
+  margin: 0 auto;
 }
 
 .imageWrap img{
@@ -342,7 +356,12 @@ h3 {
   /*.a */
 
   .a {
-    height: 438px;
+    height: 62%;
+    /*text-align: center;*/
+  }
+
+  .a .contactText {
+    text-align: center;
   }
 
   .hidepanela{
@@ -352,7 +371,7 @@ h3 {
   /*.b*/
 
   .b {
-    height: 501px;
+    height: 72%;
   }
 
   .hidepanelb{
@@ -372,11 +391,16 @@ h3 {
   /*.c*/
 
   .c{
-    height: 564px;
+    height: 82%;
   }
 
   .hidepanelc{
     height: 150px;
+  }
+
+  .iconGallery img {
+    width: 10%;
+    height: 10%;
   }
 
   /*.d*/
@@ -397,16 +421,36 @@ h3 {
 
   .sampleText {
     margin: 0 10px 0 110px;
+    height: 53%;
+    overflow: scroll;
   }
 
+  /*.sampleText:before {
+  content:'';
+  width:100%;
+  height:100%;
+  position:absolute;
+  left:0;
+  top:0;
+  background:linear-gradient(transparent 150px, white);
+  }*/
+
   .imageWrap img{
-    width: 80px;
+    width: 25%;
     position: static;
     float: left;
     clear: left;
   }
 
   .placeholder{
+    display: none;
+  }
+
+  .imageWrap .selectedSample{
+    box-shadow: 0 0 5px 2px #ffffff;
+  }
+
+  .close {
     display: none;
   }
 

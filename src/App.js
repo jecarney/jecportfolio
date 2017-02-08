@@ -3,6 +3,8 @@ import './App.css';
 
 import Panel from './Panel'
 import Samples from './Samples'
+import {Gmaps} from 'react-gmaps';
+import MapStyle from './data/mapStyle';
 
 class App extends Component {
   constructor() {
@@ -13,9 +15,22 @@ class App extends Component {
       selectedImg: 0
     };
   };
+
   render() {
     return (
       <div className="App">
+      <div className="mapDiv">
+        <Gmaps
+          width={'100%'}
+          height={'100%'}
+          lat={43.639754}
+          lng={-79.388189}
+          zoom={17}
+          params={{v: '3.exp', key: 'AIzaSyBN9YToc3QPYdZNqajKXEdEKN7BAFTgpCY'}}
+          onMapCreated={this.onMapCreated}
+          >
+        </Gmaps>
+      </div>
         <div className="wrapper">
           <header> Jules Carney </header>
           <Panel label="a" titleText="Contact" reveal={this.reveal} reset={this.reset} hidePanel={this.hidePanel} hideContent={this.hideContent} brightPanel={this.brightPanel}>
@@ -55,6 +70,18 @@ class App extends Component {
         </div>
       </div>
     );
+  }
+
+  onMapCreated = (map) => {
+    var mapOptions = {
+      disableDefaultUI: true,
+      styles: MapStyle.styles,
+      draggable: false,
+      scrollwheel: false,
+      disableDoubleClickZoom: true
+    };
+    map.setOptions(mapOptions);
+    map.resize;
   }
 
   reveal = (label) => {
