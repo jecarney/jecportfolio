@@ -33,18 +33,20 @@ class App extends Component {
       </div>
         <div className="wrapper">
           <header> Jules Carney </header>
-          <Panel label="a" titleText="Contact" reveal={this.reveal} reset={this.reset} hidePanel={this.hidePanel} hideContent={this.hideContent} brightPanel={this.brightPanel}>
-            <div className="contactText"><a href="https://ca.linkedin.com/in/jecarney"><img src="in.png" alt="Linkedin Icon" width="20px" height="20px"/>
+          <Panel label="a" titleText="Contact" reveal={this.reveal} hidePanel={this.hidePanel} hideContent={this.hideContent} brightPanel={this.brightPanel}>
+            <div className="contactText"><a href="https://ca.linkedin.com/in/jecarney" target="_blank"><img src="in.png" alt="Linkedin Icon" width="20px" height="20px"/>
             <p>jecarney</p></a></div>
-            <div className="contactText"><img src="mail.png" alt="Profile" width="20px" height="15px"/><p id="contactTextFix">
+            <div className="contactText"><img src="mail.png" alt="Profile" width="16px" height="12px"/><p id="contactTextFix">
             julia.e.carney<span>@</span>gmail.com</p>
             </div>
+            <button className={"close" + this.closePanelClass("a")} onClick={(evt) => this.closePanel(evt)}>X</button>
           </Panel>
-          <Panel label="b" titleText="About Me" reveal={this.reveal} reset={this.reset} hidePanel={this.hidePanel} hideContent={this.hideContent} brightPanel={this.brightPanel}>
+          <Panel label="b" titleText="About Me" reveal={this.reveal} hidePanel={this.hidePanel} hideContent={this.hideContent} brightPanel={this.brightPanel}>
             <img src="profile.png" alt="Profile"/>
             <div className="contentText">Hello! I'm Jules, a full-stack developer based in Toronto. I have years of JavaScript and web mapping experience, and many back-end skills. I'd love to work with you!</div>
+            <button className={"close" + this.closePanelClass("b")} onClick={(evt) => this.closePanel(evt)}>X</button>
           </Panel>
-          <Panel label="c" titleText="Highlights" reveal={this.reveal} reset={this.reset} hidePanel={this.hidePanel} hideContent={this.hideContent} brightPanel={this.brightPanel}>
+          <Panel label="c" titleText="Highlights" reveal={this.reveal} hidePanel={this.hidePanel} hideContent={this.hideContent} brightPanel={this.brightPanel}>
             <div className="contentText">
               <ul>
                 <li>Several years of professional experience with client-side scripting using JavaScript and libraries</li>
@@ -61,8 +63,9 @@ class App extends Component {
                 <img src="dotnet.png" alt=".NET icon" width="40px" height="40px"/>
               </div>
             </div>
+            <button className={"close" + this.closePanelClass("c")} onClick={(evt) => this.closePanel(evt)}>X</button>
           </Panel>
-          <Panel label="d" titleText="Sample Work" reveal={this.reveal} reset={this.reset} hidePanel={this.hidePanel} hideContent={this.hideContent} brightPanel={this.brightPanel}>
+          <Panel label="d" titleText="Sample Work" reveal={this.reveal} hidePanel={this.hidePanel} hideContent={this.hideContent} brightPanel={this.brightPanel}>
             <div className="contentText">
               <Samples selectedImg={this.state.selectedImg} imgClick={this.imgClick} close={this.close} imgClass={this.imgClass} closeClass={this.closeClass}/>
             </div>
@@ -90,13 +93,6 @@ class App extends Component {
     this.setState({
       visiblePanels:visiblePanels,
       selectedPanel: label
-    });
-  }
-
-  reset = () => {
-    this.setState({
-      visiblePanels:["a","b","c","d"],
-      selectedPanel: "a"
     });
   }
 
@@ -142,6 +138,23 @@ class App extends Component {
       return "";
     }
   }
+
+  closePanel = (evt) => {
+    evt.stopPropagation()
+    this.setState({
+      visiblePanels: ["d"],
+      selectedPanel: "d"
+    });
+  }
+
+  closePanelClass = (panel) => {
+    if(this.state.selectedPanel===panel){
+      return "";
+    }else{
+      return " hidden";
+    }
+  }
+
 }
 
 export default App;
