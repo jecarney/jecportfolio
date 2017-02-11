@@ -18,7 +18,7 @@ body{
 .wrapper{
     position: relative;
     margin: 0 auto;
-    width:620px;
+    width:100%;
     height:100%;
 }
 
@@ -84,6 +84,7 @@ h3 {
   right: 0;
   transition: 0.3s;
   overflow: hidden;
+  border: 1px solid transparent;
 }
 
 .hideContent .titleText {
@@ -171,6 +172,7 @@ h3 {
   position: absolute;
   width: 110px;
   height: 50px;
+  cursor: pointer;
 }
 
 /*.a .panelContent{
@@ -199,6 +201,7 @@ h3 {
   position: absolute;
   width: 110px;
   height:100px;
+  cursor:pointer;
 }
 
 /* panel c */
@@ -222,6 +225,7 @@ h3 {
 .hidepanelc{
   height: 150px;
   width: 110px;
+  cursor:pointer;
 }
 
 .c .panelContent {
@@ -251,31 +255,35 @@ h3 {
   text-align: center;
 }
 
+.contentTextd{
+  padding: 0 20px 0px 20px;
+}
+
 /* SAMPLES */
 .imageWrap{
-  width: 95%;
-  position: relative;
-  height: 100%;
+  position: absolute;
+  top: 20%;
   z-index: 1;
   margin: 0 auto;
 }
 
 .imageWrap img{
-  width: 45%;
-  position: absolute;
+  width: 24%;
+  height: auto;
   transition: 0.5s;
   border-radius: 15px;
   box-shadow: 0 0 5px 2px rgba(0,0,0,.35);
-  margin: 0 0 5px 10px;
+  margin: 0 0 5px 0.5%;
+  cursor: pointer;
 }
 
 .imageWrap h4{
-  margin-top: 0;
+  margin-top: 50px;
   padding-top: 20px;
 }
 
 .sampleText {
-  margin: 0 10px 0 290px;
+
 }
 
 .placeholder{
@@ -336,6 +344,7 @@ h3 {
 
 .hidden{
   opacity: 0;
+  cursor: default;
 }
 
 .selectedSample{
@@ -358,6 +367,11 @@ h3 {
 
   /*PANELS*/
 
+  .panel {
+    height: 100%;
+    opacity: 0.9;
+  }
+
   .a, .b, .c, .hidepanela, .hidepanelb, .hidepanelc{
     width: 100%;
   }
@@ -370,9 +384,9 @@ h3 {
 
   /*.a */
 
-  .a{
+  /*.a{
     height: 62%;
-  }
+  }*/
 
   .a:not(.hidepanela){
     background-color:#3940a0;
@@ -382,11 +396,21 @@ h3 {
     height: 50px;
   }
 
+  #linkedin {
+    width: 100px;
+    margin: auto;
+  }
+
+  #email {
+    width: 190px;
+    margin: auto;
+  }
+
   /*.b*/
 
-  .b {
+  /*.b {
     height: 72%;
-  }
+  }*/
 
   .b:not(.hidepanelb){
     background-color: #317ec3;
@@ -408,9 +432,9 @@ h3 {
 
   /*.c*/
 
-  .c{
+  /*.c{
     height: 82%;
-  }
+  }*/
 
   .c:not(.hidepanelc){
     background-color: #476c7f;
@@ -473,11 +497,8 @@ h3 {
 
 }/*max-width: 660px*/
 
-@media screen and (max-width:660px){
-  .panel {
-    height: 100%;
-    opacity: 0.9;
-  }
+@media screen and (max-width:400px){
+
 
   .hidepanela{
     height: 50px;
@@ -489,5 +510,9 @@ h3 {
 
   .hidepanelc{
     height: 150px;
+  }
+
+  .iconGallery img {
+    padding: 3px;
   }
 }/*max-width: 400px*/

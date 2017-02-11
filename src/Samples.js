@@ -57,10 +57,8 @@ class Samples extends Component {
           }
           return (
             <div className="imageWrap">
-              <div className="placeholder"></div>
               <img className={this.props.imgClass(1)} src="ecospark.png" alt="EcoSpark Map" onClick={() => this.props.imgClick(1)}/>
               <img className={this.props.imgClass(2)} src="mgoldman.png" alt="Marlene Goldman site" onClick={() => this.props.imgClick(2)}/>
-              <button className={"close sampleClose" + this.props.closeClass()} onClick={this.props.close}>X</button>
               <img className={this.props.imgClass(3)} src="lcbo_api.png" alt="LCBO API app" onClick={() => this.props.imgClick(3)}/>
               <img className={this.props.imgClass(4)} src="poptask.png" alt="Pop-Task App" onClick={() => this.props.imgClick(4)}/>
               {sampleText}

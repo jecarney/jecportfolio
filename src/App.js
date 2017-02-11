@@ -34,9 +34,9 @@ class App extends Component {
         <div className="wrapper">
           <header> Jules Carney </header>
           <Panel label="a" titleText="Contact" reveal={this.reveal} hidePanel={this.hidePanel} hideContent={this.hideContent} brightPanel={this.brightPanel}>
-            <div className="contactText"><a href="https://ca.linkedin.com/in/jecarney" target="_blank"><img src="in.png" alt="Linkedin Icon" width="20px" height="20px"/>
+            <div className="contactText" id="linkedin"><a href="https://ca.linkedin.com/in/jecarney" target="_blank"><img src="in.png" alt="Linkedin Icon" width="20px" height="20px"/>
             <p>jecarney</p></a></div>
-            <div className="contactText"><img src="mail.png" alt="Profile" width="16px" height="12px"/><p id="contactTextFix">
+            <div className="contactText" id="email"><img src="mail.png" alt="Profile" width="16px" height="12px"/><p id="contactTextFix">
             julia.e.carney<span>@</span>gmail.com</p>
             </div>
             <button className={"close" + this.closePanelClass("a")} onClick={(evt) => this.closePanel(evt)}>X</button>
@@ -65,8 +65,8 @@ class App extends Component {
             </div>
             <button className={"close" + this.closePanelClass("c")} onClick={(evt) => this.closePanel(evt)}>X</button>
           </Panel>
-          <Panel label="d" titleText="Sample Work" reveal={this.reveal} hidePanel={this.hidePanel} hideContent={this.hideContent} brightPanel={this.brightPanel}>
-            <div className="contentText">
+          <Panel label="d" titleText="" reveal={this.reveal} hidePanel={this.hidePanel} hideContent={this.hideContent} brightPanel={this.brightPanel}>
+            <div className="contentText contentTextd">
               <Samples selectedImg={this.state.selectedImg} imgClick={this.imgClick} close={this.close} imgClass={this.imgClass} closeClass={this.closeClass}/>
             </div>
           </Panel>
