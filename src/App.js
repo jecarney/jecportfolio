@@ -32,9 +32,8 @@ class App extends Component {
         </Gmaps>
       </div>
         <div className="wrapper">
-          <header> Jules Carney </header>
           <Panel label="a" titleText="Contact" reveal={this.reveal} hidePanel={this.hidePanel} hideContent={this.hideContent} brightPanel={this.brightPanel}>
-            <div className="contactText" id="linkedin"><a href="https://ca.linkedin.com/in/jecarney" target="_blank"><img src="in.png" alt="Linkedin Icon" width="20px" height="20px"/>
+            <div className="contactText" id="linkedin"><a href="http://ca.linkedin.com/in/jecarney" target="_blank"><img src="in.png" alt="Linkedin Icon" width="20px" height="20px"/>
             <p>jecarney</p></a></div>
             <div className="contactText" id="email"><img src="mail.png" alt="Profile" width="16px" height="12px"/><p id="contactTextFix">
             julia.e.carney<span>@</span>gmail.com</p>
@@ -55,20 +54,19 @@ class App extends Component {
                 <li>Web mapping using Google Maps and ArcGIS Online</li>
               </ul>
               <div className="iconGallery">
-                <img src="JS.png" alt="JS icon" width="40px" height="40px"/>
-                <img src="jQuery.png" alt="jQuery icon" width="40px" height="40px"/>
-                <img src="react.png" alt="React icon" width="40px" height="40px"/>
-                <img src="html5.png" alt="HTML5 icon" width="40px" height="40px"/>
-                <img src="css3.png" alt="CSS3 icon" width="40px" height="40px"/>
-                <img src="dotnet.png" alt=".NET icon" width="40px" height="40px"/>
+                <img src="JS.png" alt="JS icon"/>
+                <img src="jQuery.png" alt="jQuery icon"/>
+                <img src="react.png" alt="React icon"/>
+                <img src="html5.png" alt="HTML5 icon"/>
+                <img src="css3.png" alt="CSS3 icon"/>
+                <img src="dotnet.png" alt=".NET icon"/>
               </div>
             </div>
             <button className={"close" + this.closePanelClass("c")} onClick={(evt) => this.closePanel(evt)}>X</button>
           </Panel>
           <Panel label="d" titleText="" reveal={this.reveal} hidePanel={this.hidePanel} hideContent={this.hideContent} brightPanel={this.brightPanel}>
-            <div className="contentText contentTextd">
-              <Samples selectedImg={this.state.selectedImg} imgClick={this.imgClick} close={this.close} imgClass={this.imgClass} closeClass={this.closeClass}/>
-            </div>
+            <header> Jules Carney </header>
+              <Samples selectedImg={this.state.selectedImg} imgClick={this.imgClick} close={this.close} imgClass={this.imgClass} closeLightBox={this.closeLightBox} closeClass={this.closeClass}/>
           </Panel>
         </div>
       </div>
@@ -97,7 +95,11 @@ class App extends Component {
   }
 
   hidePanel = (label) => {
-    return (this.state.visiblePanels.includes(label) ? '':' hidepanel' + label);
+      if (this.state.selectedImg === 0){
+        return(this.state.visiblePanels.includes(label) ? '':' hidepanel' + label);
+      } else {
+        return(label==="d" ? '':' hide');
+      }
   }
 
   hideContent = (label) => {
@@ -111,14 +113,9 @@ class App extends Component {
   /* Sample Gallery*/
 
   imgClass = (num) => {
-    var imgClass = "";
+    var imgClass = "sampleImg";
     if(this.state.selectedImg===num){
       imgClass += " selectedSample";
-    }
-    if(this.state.selectedImg!==0){
-      imgClass += " upperLeft";
-    }else{
-      imgClass = "img-"+num;
     }
     return imgClass;
   }
@@ -127,16 +124,8 @@ class App extends Component {
     this.setState({selectedImg: num});
   }
 
-  close = () => {
+  closeLightBox = () => {
     this.setState({selectedImg: 0});
-  }
-
-  closeClass = () => {
-    if(this.state.selectedImg===0||this.state.selectedPanel!=="d"){
-      return " hidden";
-    }else{
-      return "";
-    }
   }
 
   closePanel = (evt) => {
