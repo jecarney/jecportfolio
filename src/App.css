@@ -401,6 +401,7 @@ header{
 
   .sampleImg {
     width: 20%;
+    margin: 5px 0 5px 0;
   }
 
 }/*max-width: 660px*/
@@ -452,6 +453,5 @@ header{
     position: static;
     float: left;
     clear: left;
-    margin: 10px 0 10px 0;
   }
 }/*max-width: 400px*/
