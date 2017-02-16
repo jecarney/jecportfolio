@@ -10,7 +10,7 @@ class Samples extends Component {
                   <img src="ecospark.png" alt="EcoSpark Map"/>
                   <a href="http://www.ecospark.ca/changing-currents-summary-map" target="_blank"><h4>Ecospark Changing Currents Maps</h4></a>
                   <p>Built using: jQuery, Google Maps JS API</p>
-                  <p>Upgraded online maps to illustrate relationships between land use, greenspace, and stream health using Google APIs: Maps, Drive, and Fusion Tables</p>
+                  <p>Upgraded online maps to illustrate relationships among land use, greenspace, and stream health using Google APIs: Maps, Drive, and Fusion Tables</p>
                   <button className="close lightBoxClose" onClick={props.closeLightBox}>X</button>
                 </div>
                 )
